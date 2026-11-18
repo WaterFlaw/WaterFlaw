@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="it" data-type="software">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07131e">
+  <meta name="page-type" content="software">
+  <meta name="site-kind" content="software">
+  <meta name="description" content="Esplora la demo WaterFlaw: misure simulate, rete idrica interattiva e storico degli interventi.">
+  <title>Demo piattaforma — WaterFlaw</title>
+  <link rel="icon" href="../assets/waterflaw-logo.png" type="image/png">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <svg class="loader-filter" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="water-goo" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -11" result="goo" />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
+    <div class="liquid-loader">
+      <div class="loader-drop-main"></div>
+      <div class="loader-drop-falling"></div>
+    </div>
+  </div>
+  <a class="skip-link" href="#app-content">Vai al contenuto</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../" aria-label="WaterFlaw, torna al sito">
+        <img src="../assets/waterflaw-logo.png" alt="" width="36" height="36">
+        <span>WaterFlaw</span>
+      </a>
+      <nav class="side-nav" aria-label="Navigazione della demo">
+        <a href="#panoramica" data-tab-link="panoramica"><span class="nav-mark" aria-hidden="true"></span>Panoramica</a>
+        <a href="#rete" data-tab-link="rete"><span class="nav-mark" aria-hidden="true"></span>Rete idrica</a>
+        <a href="#interventi" data-tab-link="interventi"><span class="nav-mark" aria-hidden="true"></span>Interventi</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <a class="site-return" href="../">Torna al sito <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <a class="mobile-brand" href="../" aria-label="WaterFlaw, torna al sito"><img src="../assets/waterflaw-logo.png" alt="" width="32" height="32"><span>WaterFlaw</span></a>
+        <div class="network-name"><span class="network-name-dot" aria-hidden="true"></span>Rete privata · Demo</div>
+        <div class="scenario-control" role="group" aria-label="Scenario simulato">
+          <button type="button" data-scenario="regular" aria-pressed="true">Regolare</button>
+          <button type="button" data-scenario="leak" aria-pressed="false">Possibile perdita</button>
+        </div>
+      </header>
+
+      <main id="app-content" class="app-content">
+        <section class="view" id="panoramica" data-view="panoramica" aria-labelledby="overview-title">
+          <div class="view-heading">
+            <div><h1 id="overview-title">Panoramica</h1><p>Misure della rete nelle ultime 24 ore.</p></div>
+            <span class="view-date">18 novembre 2026</span>
+          </div>
+
+          <div class="overview-top">
+            <article class="primary-metric">
+              <span>Acqua immessa · 24 ore</span>
+              <div><strong data-metric="volume">165,6</strong><span>m³</span></div>
+              <p>Misurata al sensore S01</p>
+            </article>
+            <article class="metric-tile"><span>Tratti da verificare</span><strong data-metric="alerts">0</strong><p data-alert-caption>Nessuna anomalia rilevata</p></article>
+            <article class="metric-tile"><span>Sensori attivi</span><strong>11 <small>/ 11</small></strong><p>Ultima lettura: 22:00</p></article>
+          </div>
+
+          <div class="overview-charts">
+            <article class="chart-panel flow-panel">
+              <div class="panel-heading"><div><h2>Portata nel tempo</h2><p>Tratto S04–S06 · litri al minuto</p></div>
+                <div class="period-control" role="group" aria-label="Periodo del grafico">
+                  <button type="button" data-period="day" aria-pressed="true">24 ore</button>
+                  <button type="button" data-period="week" aria-pressed="false">7 giorni</button>
+                </div>
+              </div>
+              <svg class="flow-chart" data-flow-chart viewBox="0 0 720 280" role="img" aria-label="Portata a monte e a valle del tratto selezionato nel tempo"></svg>
+              <div class="chart-legend"><span><i class="legend-upstream"></i> S04 · monte</span><span><i class="legend-downstream"></i> S06 · valle</span></div>
+            </article>
+            <article class="chart-panel volume-panel">
+              <div class="panel-heading"><div><h2>Volume monitorato</h2><p>Ultimi 7 giorni · m³</p></div></div>
+              <div class="volume-chart" data-volume-chart role="img" aria-label="Volume giornaliero monitorato negli ultimi sette giorni"></div>
+              <div class="volume-total"><span>Totale settimanale</span><strong>1.113 m³</strong></div>
+            </article>
+          </div>
+
+        </section>
+
+        <section class="view" id="rete" data-view="rete" aria-labelledby="network-title" hidden>
+          <div class="view-heading"><div><h1 id="network-title">Rete idrica</h1><p>Seleziona un punto di misura per leggere il tratto collegato.</p></div><span class="view-date">11 sensori · 10 tratti</span></div>
+          <div class="network-layout">
+            <article class="graph-panel">
+              <div class="panel-heading"><div><h2>Rete dimostrativa</h2><p>Tre collettori e quattro diramazioni</p></div><span class="network-status" data-network-status>Regolare</span></div>
+              <div class="graph-viewport">
+                <div class="graph-canvas">
+                  <svg viewBox="0 0 900 600" aria-hidden="true" focusable="false">
+                    <path class="graph-edge" d="M70 300 220 300" />
+                    <path class="graph-edge" d="M220 300 390 150" />
+                    <path class="graph-edge" d="M390 150 570 100" />
+                    <path class="graph-edge" d="M570 100 810 100" />
+                    <path class="graph-edge" d="M390 150 690 235" />
+                    <path class="graph-edge" d="M220 300 390 450" />
+                    <path class="graph-edge" d="M390 450 570 360" />
+                    <path class="graph-edge" data-alert-edge d="M570 360 810 360" />
+                    <path class="graph-edge" d="M390 450 570 525" />
+                    <path class="graph-edge" d="M570 525 810 525" />
+                  </svg>
+                  <button type="button" class="graph-node" data-node="S01" style="--x:7.778%;--y:50%;"><strong>S01</strong><span>Ingresso</span></button>
+                  <button type="button" class="graph-node is-collector" data-node="S02" style="--x:24.444%;--y:50%;"><strong>S02</strong><span>Collettore centrale</span></button>
+                  <button type="button" class="graph-node is-collector" data-node="S07" style="--x:43.333%;--y:25%;"><strong>S07</strong><span>Collettore nord</span></button>
+                  <button type="button" class="graph-node" data-node="S03" style="--x:63.333%;--y:16.667%;"><strong>S03</strong><span>Ramo nord</span></button>
+                  <button type="button" class="graph-node" data-node="S05" style="--x:90%;--y:16.667%;"><strong>S05</strong><span>Uscita nord</span></button>
+                  <button type="button" class="graph-node" data-node="S09" style="--x:76.667%;--y:39.167%;"><strong>S09</strong><span>Uscita laterale</span></button>
+                  <button type="button" class="graph-node is-collector" data-node="S08" style="--x:43.333%;--y:75%;"><strong>S08</strong><span>Collettore sud</span></button>
+                  <button type="button" class="graph-node" data-node="S04" style="--x:63.333%;--y:60%;"><strong>S04</strong><span>Ramo sud</span></button>
+                  <button type="button" class="graph-node" data-node="S06" style="--x:90%;--y:60%;"><strong>S06</strong><span>Uscita sud</span></button>
+                  <button type="button" class="graph-node" data-node="S10" style="--x:63.333%;--y:87.5%;"><strong>S10</strong><span>Ramo servizi</span></button>
+                  <button type="button" class="graph-node" data-node="S11" style="--x:90%;--y:87.5%;"><strong>S11</strong><span>Uscita servizi</span></button>
+                </div>
+              </div>
+              <div class="graph-legend"><span><i class="legend-node"></i>Punto di misura</span><span><i class="legend-alert"></i>Tratto da verificare</span></div>
+            </article>
+            <aside class="detail-panel" aria-live="polite">
+              <div class="detail-head"><span data-detail-code>S04</span><span class="detail-status" data-detail-status>Regolare</span></div>
+              <h2 data-detail-name>Ramo sud</h2>
+              <p data-detail-context>Tratto verso il sensore S06</p>
+              <div class="detail-reading"><span>Portata rilevata</span><strong><span data-detail-flow>51,3</span> <small>L/min</small></strong></div>
+              <dl class="detail-facts">
+                <div><dt>Pressione</dt><dd data-detail-pressure>3,6 bar</dd></div>
+                <div><dt data-detail-down-label>Misura a valle · S06</dt><dd data-detail-down>50,9 L/min</dd></div>
+                <div><dt>Scarto fra le letture</dt><dd data-detail-diff>0,4 L/min</dd></div>
+              </dl>
+              <button type="button" class="detail-action" data-schedule hidden>Programma una verifica <span aria-hidden="true">↗</span></button>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="interventi" data-view="interventi" aria-labelledby="interventions-title" hidden>
+          <div class="view-heading"><div><h1 id="interventions-title">Interventi</h1><p>Verifiche e manutenzioni della rete dimostrativa.</p></div><span class="view-date">Storico simulato</span></div>
+          <div class="interventions-layout">
+            <article class="chart-panel interventions-chart-panel">
+              <div class="panel-heading"><div><h2>Attività nel tempo</h2><p>Interventi per mese</p></div></div>
+              <div class="interventions-chart" data-interventions-chart role="img" aria-label="Numero di interventi negli ultimi sei mesi"></div>
+            </article>
+            <article class="history-panel">
+              <div class="history-heading"><h2>Ultimi interventi</h2><div class="history-filters" role="group" aria-label="Filtra gli interventi"><button type="button" data-filter="all" aria-pressed="true">Tutti</button><button type="button" data-filter="open" aria-pressed="false">Aperti</button><button type="button" data-filter="done" aria-pressed="false">Conclusi</button></div></div>
+              <div class="history-list" data-history-list></div>
+            </article>
+          </div>
+        </section>
+      </main>
+      <footer class="app-footer"><span>© 2026 WaterFlaw · Demo</span><div><a href="../privacy.html">Privacy</a><a href="../cookie.html">Cookie</a></div></footer>
+    </div>
+  </div>
+  <nav class="mobile-nav" aria-label="Navigazione della demo"><a href="#panoramica" data-tab-link="panoramica">Panoramica</a><a href="#rete" data-tab-link="rete">Rete</a><a href="#interventi" data-tab-link="interventi">Interventi</a></nav>
+</body>
+</html>

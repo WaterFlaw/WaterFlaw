@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07131e">
+  <meta name="description" content="WaterFlaw usa misure e analisi per aiutare chi gestisce una rete idrica a individuare possibili anomalie e pianificare verifiche mirate.">
+  <title>WaterFlaw — Dati per decidere dove intervenire</title>
+  <link rel="icon" href="./assets/waterflaw-logo.png" type="image/png">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <div class="loader" id="loader" hidden aria-hidden="true">
+    <svg class="loader-filter" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="water-goo" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -11" result="goo" />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
+    <div class="liquid-loader">
+      <div class="loader-drop-main"></div>
+      <div class="loader-drop-falling"></div>
+    </div>
+  </div>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="#inizio" aria-label="WaterFlaw, torna all'inizio">
+        <img src="./assets/waterflaw-logo.png" alt="" width="42" height="42">
+        <span>WaterFlaw</span>
+      </a>
+      <nav aria-label="Navigazione principale">
+        <a href="#missione">Missione</a>
+        <a href="#problema">Il problema</a>
+        <a href="#soluzione">La soluzione</a>
+        <a href="#sensore">Il sensore</a>
+        <a href="#servizio">Il servizio</a>
+        <a href="#funzionamento">Come funziona</a>
+      </nav>
+    </div>
+  </header>
+  <main id="contenuto">
+    <section class="hero section" id="inizio" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title" data-enter>Dati per decidere<br><em>dove intervenire.</em></h1>
+          <p data-enter>WaterFlaw usa misurazioni e analisi per aiutare chi gestisce una rete idrica a riconoscere possibili anomalie e programmare verifiche mirate.</p>
+          <a class="text-link" href="#missione" data-enter>Scopri il progetto <span aria-hidden="true">↘</span></a>
+        </div>
+        <svg class="hero-network" viewBox="0 0 740 560" aria-hidden="true" focusable="false">
+          <g class="hero-network-lines">
+            <path d="M70 274 225 150 390 252 572 98 690 174" />
+            <path d="M70 274 222 390 390 252 572 420 690 340" />
+            <path d="M225 150 222 390M572 98 572 420M390 252 690 340" />
+          </g>
+          <g class="hero-network-nodes">
+            <circle cx="70" cy="274" r="5"/><circle cx="225" cy="150" r="5"/>
+            <circle cx="222" cy="390" r="5"/><circle cx="390" cy="252" r="7"/>
+            <circle cx="572" cy="98" r="5"/><circle cx="572" cy="420" r="5"/>
+            <circle cx="690" cy="174" r="5"/><circle cx="690" cy="340" r="5"/>
+          </g>
+        </svg>
+      </div>
+      <span class="hero-edge" aria-hidden="true"></span>
+    </section>
+    <section class="mission section" id="missione" aria-labelledby="mission-title">
+      <div class="wrap split-layout">
+        <h2 id="mission-title" class="section-title reveal">Rendere visibili<br>le perdite, <em>prima<br>di intervenire.</em></h2>
+        <div class="section-copy reveal">
+          <p>WaterFlaw vuole rendere più semplice il controllo delle reti idriche. Le misure aiutano a scegliere dove verificare, evitando ispezioni indiscriminate.</p>
+          <div class="measure-line" aria-hidden="true"><i></i><span></span><i></i></div>
+        </div>
+      </div>
+    </section>
+    <section class="problem section" id="problema" aria-labelledby="problem-title">
+      <div class="wrap">
+        <div class="problem-intro">
+          <h2 id="problem-title" class="section-title reveal">L'acqua si perde.<br><em>Spesso senza sapere dove.</em></h2>
+          <p class="section-copy reveal">Nel 2022 le perdite idriche totali nelle reti comunali italiane erano il 42,4% dell'acqua immessa. Il dato descrive le reti pubbliche, non la domanda delle reti private.</p>
+        </div>
+        <figure class="loss-chart" aria-labelledby="chart-label" data-chart>
+          <figcaption id="chart-label" class="reveal">Perdite idriche totali nelle reti comunali · 2022</figcaption>
+          <div class="chart-grid" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="chart-rows">
+            <div class="chart-row reveal"><span class="chart-place">Italia</span><span class="chart-track"><span class="chart-bar" style="--bar-width:60.571%;"></span></span><strong>42,4%</strong></div>
+            <div class="chart-row reveal"><span class="chart-place">Calabria</span><span class="chart-track"><span class="chart-bar" style="--bar-width:69.571%;"></span></span><strong>48,7%</strong></div>
+            <div class="chart-row reveal"><span class="chart-place">Cosenza</span><span class="chart-track"><span class="chart-bar" style="--bar-width:69.429%;"></span></span><strong>48,6%</strong></div>
+            <div class="chart-row reveal"><span class="chart-place">Crotone<span class="provisional">*</span></span><span class="chart-track"><span class="chart-bar chart-bar-strong" style="--bar-width:87.286%;"></span></span><strong>61,1%</strong></div>
+          </div>
+          <div class="chart-axis reveal" aria-hidden="true"><span>0</span><span>20</span><span>40</span><span>60</span><span>70%</span></div>
+          <p class="chart-source reveal">* Dato provvisorio. Fonte: <a href="https://www.istat.it/wp-content/uploads/2024/12/Calabria_BesT_2024.pdf" target="_blank" rel="noopener noreferrer">ISTAT, BesT Calabria 2024</a>, tavola 2.8.</p>
+        </figure>
+      </div>
+    </section>
+    <section class="solution section" id="soluzione" aria-labelledby="solution-title">
+      <div class="wrap split-layout solution-layout">
+        <div class="solution-copy">
+          <h2 id="solution-title" class="section-title reveal">Dalle misurazioni<br>alle <em>verifiche mirate.</em></h2>
+          <p class="section-copy reveal">I sensori misurano la portata e, quando serve, la pressione. Il software confronta le letture e segnala i tratti da controllare. La presenza di una perdita si accerta sul posto.</p>
+        </div>
+        <figure class="network-figure reveal" aria-label="Schema di una rete idrica: un tratto viene evidenziato per una possibile anomalia" data-network>
+          <svg viewBox="0 0 620 430" role="img" aria-labelledby="network-svg-title network-svg-desc">
+            <title id="network-svg-title">Rete di misura</title>
+            <desc id="network-svg-desc">Otto punti collegati da tubazioni. Un tratto è evidenziato come possibile anomalia da verificare.</desc>
+            <g class="network-base">
+              <path pathLength="1" d="M60 232 170 120 328 204 495 88 572 158" />
+              <path pathLength="1" d="M60 232 174 338 328 204 492 330 572 270" />
+              <path pathLength="1" d="M170 120 174 338M495 88 492 330" />
+            </g>
+            <path class="network-alert" pathLength="1" d="M328 204 492 330" />
+            <g class="network-dots">
+              <circle cx="60" cy="232" r="9"/><circle cx="170" cy="120" r="9"/>
+              <circle cx="174" cy="338" r="9"/><circle cx="328" cy="204" r="11"/>
+              <circle cx="495" cy="88" r="9"/><circle cx="492" cy="330" r="9"/>
+              <circle cx="572" cy="158" r="9"/><circle cx="572" cy="270" r="9"/>
+            </g>
+            <circle class="network-alert-dot" cx="410" cy="267" r="6" />
+          </svg>
+        </figure>
+      </div>
+    </section>
+    <section class="sensor section" id="sensore" aria-labelledby="sensor-title">
+      <div class="wrap sensor-layout">
+        <div class="sensor-copy">
+          <h2 id="sensor-title" class="section-title reveal">Il sensore,<br><em>da vicino.</em></h2>
+          <p class="section-copy reveal">Il prototipo raccoglie le letture dei misuratori. Qui puoi osservare l’involucro e la scheda che collega i sensori all’unità di controllo.</p>
+          <div class="sensor-controls reveal" aria-label="Comandi del modello">
+            <button class="sensor-toggle" type="button" data-sensor-toggle aria-controls="sensor-model" aria-expanded="false" disabled><span data-sensor-toggle-label>Apri l’involucro</span><span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="sensor-hint reveal" data-sensor-hint>Caricamento del modello…</p>
+        </div>
+        <div class="sensor-stage reveal" id="sensor-model" data-sensor-stage tabindex="0" role="group" aria-label="Modello interattivo del sensore WaterFlaw. Usa le frecce per ruotarlo e il pulsante per aprire l’involucro.">
+          <img class="sensor-image" data-sensor-image src="./assets/sensor/frame_000.webp" width="580" height="580" alt="Involucro del prototipo WaterFlaw, vista ruotabile a 360 gradi" draggable="false" fetchpriority="low">
+          <span class="sensor-stage-state" data-sensor-state aria-live="polite">Vista esterna · 360°</span>
+        </div>
+      </div>
+    </section>
+    <section class="service section" id="servizio" aria-labelledby="service-title">
+      <div class="wrap">
+        <div class="service-intro">
+          <h2 id="service-title" class="section-title reveal">Il servizio, dall'installazione <em>all'assistenza.</em></h2>
+          <p class="section-copy reveal">Il preventivo distingue la fornitura iniziale dal canone periodico. La configurazione dipende dall'estensione della rete e dai punti da monitorare.</p>
+        </div>
+        <div class="service-offer" aria-label="Componenti del servizio">
+          <div class="service-offer-part reveal">
+            <span>All'avvio</span>
+            <strong>Dispositivi<br>e installazione</strong>
+          </div>
+          <div class="service-offer-part reveal">
+            <span>Nel tempo</span>
+            <strong>Piattaforma web<br>e assistenza</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="audience section" id="destinatari" aria-labelledby="audience-title">
+      <div class="wrap audience-layout">
+        <div>
+          <h2 id="audience-title" class="section-title reveal">Ogni rete ha bisogno<br>di essere <em>compresa.</em></h2>
+          <p class="section-copy reveal">WaterFlaw si rivolge inizialmente a organizzazioni che gestiscono reti idriche private e devono decidere dove concentrare i controlli.</p>
+        </div>
+        <ul class="audience-list" aria-label="Destinatari iniziali">
+          <li class="reveal">Aziende agricole</li>
+          <li class="reveal">Imprese industriali</li>
+          <li class="reveal">Strutture ricettive</li>
+          <li class="reveal">Complessi immobiliari</li>
+        </ul>
+      </div>
+    </section>
+    <section class="process section" id="funzionamento" aria-labelledby="process-title">
+      <div class="wrap">
+        <h2 id="process-title" class="section-title reveal">Una rete più leggibile.<br><em>Decisioni più precise.</em></h2>
+        <p class="section-copy reveal">La rete viene rappresentata, le misure vengono raccolte e le anomalie orientano le verifiche. Il gestore mantiene il controllo degli interventi.</p>
+        <ol class="process-steps reveal" data-process>
+          <li><span class="step-dot" aria-hidden="true"></span><span>Rappresentare</span></li>
+          <li><span class="step-dot" aria-hidden="true"></span><span>Misurare</span></li>
+          <li><span class="step-dot" aria-hidden="true"></span><span>Segnalare</span></li>
+          <li><span class="step-dot" aria-hidden="true"></span><span>Verificare</span></li>
+        </ol>
+      </div>
+    </section>
+    <section class="rollout section" id="avvio" aria-labelledby="rollout-title">
+      <div class="wrap split-layout rollout-layout">
+        <div>
+          <h2 id="rollout-title" class="section-title reveal">Prima un tratto.<br><em>Poi il resto della rete.</em></h2>
+          <p class="section-copy reveal">WaterFlaw può iniziare da una porzione delimitata. I dati raccolti aiutano il gestore a decidere se e dove estendere il monitoraggio.</p>
+        </div>
+        <figure class="rollout-diagram reveal" data-rollout aria-label="Il monitoraggio parte da un tratto della rete e può estendersi ad altri collegamenti">
+          <svg viewBox="0 0 600 250" role="img" aria-labelledby="rollout-svg-title rollout-svg-desc">
+            <title id="rollout-svg-title">Avvio graduale del monitoraggio</title>
+            <desc id="rollout-svg-desc">Il primo tratto è evidenziato in azzurro. Gli altri collegamenti rappresentano una possibile estensione.</desc>
+            <path class="rollout-possible" pathLength="1" d="M260 128 385 61 550 132M385 61 390 201 550 132" />
+            <path class="rollout-start" pathLength="1" d="M45 128 145 72 260 128 145 191 45 128M145 72 145 191" />
+            <g class="rollout-points">
+              <circle cx="45" cy="128" r="8"/><circle cx="145" cy="72" r="8"/>
+              <circle cx="145" cy="191" r="8"/><circle cx="260" cy="128" r="9"/>
+            </g>
+            <g class="rollout-future-points">
+              <circle cx="385" cy="61" r="8"/><circle cx="390" cy="201" r="8"/>
+              <circle cx="550" cy="132" r="8"/>
+            </g>
+          </svg>
+          <figcaption><span>Primo tratto</span><span>Estensione possibile</span></figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="demo-section section" id="demo" aria-labelledby="demo-title">
+      <div class="wrap demo-layout">
+        <div class="demo-copy">
+          <h2 id="demo-title" class="section-title reveal">Demo della <em>piattaforma.</em></h2>
+          <p class="section-copy reveal">Una rete simulata mostra le misure nel tempo, i tratti da verificare e lo storico degli interventi.</p>
+        </div>
+        <div class="demo-action reveal">
+          <a class="demo-cta" href="./demo/">
+            <span class="demo-cta-label">Prova la demo</span>
+            <span class="demo-cta-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" id="chiusura" aria-labelledby="footer-title">
+    <div class="wrap footer-content">
+      <div class="footer-main">
+        <a class="footer-lockup reveal" href="#inizio" aria-label="WaterFlaw, torna all'inizio">
+          <img src="./assets/waterflaw-logo.png" alt="" width="104" height="104">
+          <span>WaterFlaw</span>
+        </a>
+        <h2 id="footer-title" class="section-title reveal">Conoscere la rete.<br><em>Ridurre gli sprechi.</em></h2>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copyright reveal">© 2026 WaterFlaw</span>
+        <nav class="footer-legal" aria-label="Informazioni legali">
+          <a class="reveal" href="./privacy.html">Privacy policy</a>
+          <a class="reveal" href="./cookie.html">Cookie policy</a>
+        </nav>
+        <a class="footer-return reveal" href="#inizio">Torna all'inizio <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
