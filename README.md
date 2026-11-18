@@ -8,7 +8,7 @@ WaterFlaw è una simulazione di impresa sviluppata da Francesco Corti, Diell Gui
 
 **Dati per decidere dove intervenire.** WaterFlaw propone di confrontare le misure raccolte in punti diversi di una rete idrica per segnalare i tratti che meritano un'ispezione. Il servizio previsto combina misuratori, installazione, piattaforma web e assistenza.
 
-[Elaborato (PDF)](./WaterFlaw_FINAL.pdf) · [Codice del sito](./index.html) · [Codice della demo](./demo/)
+[Visita il sito](https://waterflaw.github.io/WaterFlaw/) · [Prova la demo](https://waterflaw.github.io/WaterFlaw/demo/) · [Elaborato (PDF)](./WaterFlaw_FINAL.pdf)
 
 ## Come funzionerebbe il software
 
@@ -46,7 +46,7 @@ Per avviarlo in locale dalla radice del progetto:
 python3 -m http.server 8000
 ```
 
-Il sito sarà disponibile su `http://localhost:8000/` e la demo su `http://localhost:8000/demo/`. La radice contiene `index.html`, quindi può essere scelta come sorgente di [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) senza una fase di compilazione.
+In locale, il sito è disponibile su `http://localhost:8000/` e la demo su `http://localhost:8000/demo/`.
 
 ## File principali
 
